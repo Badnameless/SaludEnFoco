@@ -23,6 +23,9 @@ Route::get('/blogs', function () {
     return view('blogs');
 });
 
+Route::get('/usuarios', function () {
+    return view('usuarios.index');
+})->name('usuarios')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
