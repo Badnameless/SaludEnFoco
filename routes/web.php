@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreguntaFrecuenteController;
 
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return view('index');
 });
+
+Route::get('/blogs', function () {
+    return view('blogs');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
-
+})->name('dashboard')->middleware('auth');
 ?>

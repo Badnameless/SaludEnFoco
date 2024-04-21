@@ -1,0 +1,14 @@
+.titlebox h1{
+    margin: 0;
+    color: #fff;
+    position: relative;
+    z-index: 11;
+    line-height: 1.25em;
+    font-size: 48px;
+    text-align: center;
+}
+
+.titlebox{
+    background-image: url(//holamed.like-themes.com/wp-content/uploads/2018/11/inner_header_01.jpg) !important;
+    padding: 50px 0px 50px 0px;
+}
