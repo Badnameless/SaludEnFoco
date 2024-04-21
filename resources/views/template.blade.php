@@ -333,7 +333,14 @@
                                     alt="">
                                 Usuarios
                             </a>
-
+                            <a href="{{ route('adm_blog') }}"
+                                class="orders navLink -mr-2 rounded-r-none hover:bg-gradient-to-r from-gray-600 text-white group flex items-center pl-6 py-2 text-lg !mb-2 box-border w-full leading-6 font-normal"
+                                aria-current="page">
+                                <!-- Heroicon name: outline/home -->
+                                <img class="h-23px mr-4" src="{{ url('/images/white-settings.png') }}"
+                                    alt="">
+                                Blogs
+                            </a>
                         </div>
                     </div>
                 </nav>
@@ -357,7 +364,7 @@
 
                     <div class="flex-1 items-center flex justify-between my-6 rounded-2xl">
 
-                        <div class="h-60px bg-white flex-1 items-center flex justify-between p-4 py-3 rounded-2xl">
+                        <div class="h-60px bg-white flex-1 items-center flex justify-between p-4 py-3 rounded-2xl invisible">
 
                     
                             <div class="ml-3 relative">

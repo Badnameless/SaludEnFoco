@@ -1,8 +1,8 @@
 @extends('layout-page')
-@section('title', 'Blogs')
+@section('title', '{{ $blog->nombre }}')
 @section('content')
     <div class="titlebox">
-        <h1>El Blog</h1>
+        <h1>{{ $blog->nombre }}</h1>
     </div>
     <div class="Content">
         <div class="container">
@@ -10,40 +10,40 @@
                 <div class="Content__body">
                     <div class="Content__mainBlog">
                         <a href="#" class="Content__mainBlog--image">
-                            <img src="./images/blogImage1.jpg" alt="">
+                            <img src="{{ asset('storage/' . $blog->imagen) }}" alt="">
                         </a>
                         <div class="Content__mainBlog--name">
                             <h3>Descripción</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius. Etiam nec laoreet turpis. Aenean nisi libero, tempor non sem vitae, hendrerit egestas ex. Nam magna odio, placerat.</p>
+                            <p>{{ $blog->descripcion }}</p>
                         </div>
                         <div class="Content__mainBlog--name">
                             <h3>Sintomas</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius. Etiam nec laoreet turpis. Aenean nisi libero, tempor non sem vitae, hendrerit egestas ex. Nam magna odio, placerat.</p>
+                            <p>{{ $blog->sintomas }}</p>
                         </div>
                         <div class="Content__mainBlog--name">
                             <h3>Causas</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius. Etiam nec laoreet turpis. Aenean nisi libero, tempor non sem vitae, hendrerit egestas ex. Nam magna odio, placerat.</p>
+                            <p>{{ $blog->causas }}</p>
                         </div>
                         <div class="Content__mainBlog--name">
                             <h3>Prevención</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius. Etiam nec laoreet turpis. Aenean nisi libero, tempor non sem vitae, hendrerit egestas ex. Nam magna odio, placerat.</p>
+                            <p>{{ $blog->prevencion }}</p>
                         </div>
                         <div class="Content__mainBlog--details">
                             <div class="Content__mainBlog--details-item">
                                 <i class="fa-regular fa-clock"></i>
-                                <span>March 3, 2024</span>
+                                <span>{{ $blog->fecha }}</span>
                             </div>
                             <div class="Content__mainBlog--details-item">
                                 <i class="fa-regular fa-eye"></i>
-                                <span>394</span>
+                                <span>{{ $blog->views }}</span>
                             </div>
                         </div>
                     </div>
@@ -53,84 +53,61 @@
                         <div class="Content__sidebar--item">
                             <div class="Content__sidebar--heading">
                                 <h3>
-                                    <img src="./images/page-marker.png" alt="">
-                                    Popular Posts
+                                    <img src="{{ asset('images/page-marker.png') }}" alt="">
+                                    Posts Populares
                                 </h3>
                             </div>
                             <div class="Content__sidebar--posts">
-                                <a href="#" class="Content__sidebar--post">
-                                    <div class="Content__sidebar--post-image">
-                                        <img src="./images/blogImage1.jpg" alt="">
-                                    </div>
-                                    <div class="Content__sidebar--post-name">
-                                        <h6>The best recreation areas for general immunity</h6>
-                                    </div>
-                                    <div class="Content__sidebar--post-details">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
+                                @foreach ($popularblogs as $popularblog)
+                                    <a href="{{ route('blogindex', ['id' => $popularblog->id]) }}" class="Content__sidebar--post">
+                                        <div class="Content__sidebar--post-image">
+                                            <img src="{{ asset('storage/' . $popularblog->imagen) }}" alt="">
                                         </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
+                                        <div class="Content__sidebar--post-name">
+                                            <h6>{{ $popularblog->nombre }}</h6>
                                         </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
+                                        <div class="Content__sidebar--post-details">
+                                            <div class="Content__mainBlog--details-item">
+                                                <i class="fa-regular fa-clock"></i>
+                                                <span>{{ $popularblog->fecha }}</span>
+                                            </div>
+                                            <div class="Content__mainBlog--details-item">
+                                                <i class="fa-regular fa-eye"></i>
+                                                <span>{{ $popularblog->views }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="Content__sidebar--post">
-                                    <div class="Content__sidebar--post-image">
-                                        <img src="./images/blogImage1.jpg" alt="">
-                                    </div>
-                                    <div class="Content__sidebar--post-name">
-                                        <h6>The best recreation areas for general immunity</h6>
-                                    </div>
-                                    <div class="Content__sidebar--post-details">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                @endforeach
+
                             </div>
                         </div>
                         <div class="Content__sidebar--item">
                             <div class="Content__sidebar--heading">
                                 <h3>
                                     <img src="./images/page-marker.png" alt="">
-                                    Comments
+                                    Comentarios
                                 </h3>
                                 <div class="Content__sidebar--comments">
                                     <div class="Content__sidebar--comment">
                                         <span>
                                             <i class="fa-solid fa-comments"></i>
-                                            Dr. Emma Stone
+                                            Dr. Julio Peña
                                         </span>
-                                        <p>The best recreation areas for general immunity</p>
+                                        <p>La mejor pagina de medicina</p>
                                     </div>
                                     <div class="Content__sidebar--comment">
                                         <span>
                                             <i class="fa-solid fa-comments"></i>
-                                            Dr. Emma Stone
+                                            Dr. Armando Casas
                                         </span>
-                                        <p>The best recreation areas for general immunity</p>
+                                        <p>Mucho contenido didactico y necesario</p>
                                     </div>
                                     <div class="Content__sidebar--comment">
                                         <span>
                                             <i class="fa-solid fa-comments"></i>
-                                            Dr. Emma Stone
+                                            Dr. Alan Brito
                                         </span>
-                                        <p>The best recreation areas for general immunity</p>
+                                        <p>La brujula guia para una buena salud</p>
                                     </div>
                                 </div>
                             </div>
@@ -139,12 +116,12 @@
                             <div class="Content__sidebar--heading">
                                 <h3>
                                     <img src="./images/page-marker.png" alt="">
-                                    Calendar
+                                    Calendario
                                 </h3>
                                 <div class="Content__sidebar--calendar">
                                     <div class="Content__sidebar--calendarContainer">
                                         <table id="wp-calendar" class="wp-calendar-table">
-                                            <caption>April 2024</caption>
+                                            <caption>Abril 2024</caption>
                                             <thead>
                                                 <tr>
                                                     <th scope="col" title="Monday">M</th>

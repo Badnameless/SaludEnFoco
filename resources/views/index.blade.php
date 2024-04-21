@@ -6,112 +6,49 @@
             <div class="Content__container">
                 <div class="Content__body">
                     <div class="Content__mainBlog">
-                        <a href="#" class="Content__mainBlog--image">
-                            <img src="./images/blogImage1.jpg" alt="">
+                        <a href="{{ route('blogindex', ['id' => $mainblog->id]) }}" class="Content__mainBlog--image">
+                            <img src="storage/{{ $mainblog->imagen }}" alt="">
                         </a>
                         <a href="#" class="Content__mainBlog--name">
-                            <h3>The best medical centers in Europe and Asia</h3>
+                            <h3>{{ $mainblog->nombre }}</h3>
                         </a>
                         <div class="Content__mainBlog--description">
-                            <p>Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius. Etiam nec laoreet turpis. Aenean nisi libero, tempor non sem vitae, hendrerit egestas ex. Nam magna odio, placerat.</p>
+                            <p>{{ $mainblog->descripcion }}</p>
                         </div>
                         <div class="Content__mainBlog--details">
                             <div class="Content__mainBlog--details-item">
                                 <i class="fa-regular fa-clock"></i>
-                                <span>March 3, 2024</span>
+                                <span>{{ $mainblog->fecha }}</span>
                             </div>
                             <div class="Content__mainBlog--details-item">
                                 <i class="fa-regular fa-eye"></i>
-                                <span>394</span>
-                            </div>
-                            <div class="Content__mainBlog--details-item">
-                                <i class="fa-solid fa-comments"></i>
-                                <span>2</span>
+                                <span>{{ $mainblog->views }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="Content__blogsContainer">
-                        <a href="#" class="Content__blogsContainer--blog">
-                            <div class="Content__blogsContainer--blog-image">
-                                <img src="./images/blogImage1.jpg" alt="">
-                            </div>
-                            <div class="Content__blogsContainer--blog-details">
-                                <div class="Content__blogsContainer--blog-caption">
-                                    <h4>Healthy</h4>
+                        @foreach ($dateblogs as $dateblog)
+                            <a href="{{ route('blogindex', ['id' => $dateblog->id]) }}" class="Content__blogsContainer--blog">
+                                <div class="Content__blogsContainer--blog-image">
+                                    <img src="storage/{{ $dateblog->imagen }}" alt="">
                                 </div>
-                                <div class="Content__blogsContainer--blog-name">
-                                    <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                </div>
-                                <div class="Content__blogsContainer--blog-info">
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>March 3, 2024</span>
+                                <div class="Content__blogsContainer--blog-details">
+                                    <div class="Content__blogsContainer--blog-name">
+                                        <h3>{{ $dateblog->nombre }}</h3>
                                     </div>
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-regular fa-eye"></i>
-                                        <span>394</span>
-                                    </div>
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-solid fa-comments"></i>
-                                        <span>2</span>
+                                    <div class="Content__blogsContainer--blog-info">
+                                        <div class="Content__mainBlog--details-item">
+                                            <i class="fa-regular fa-clock"></i>
+                                            <span>{{ $dateblog->fecha }}</span>
+                                        </div>
+                                        <div class="Content__mainBlog--details-item">
+                                            <i class="fa-regular fa-eye"></i>
+                                            <span>{{ $dateblog->views }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#" class="Content__blogsContainer--blog">
-                            <div class="Content__blogsContainer--blog-image">
-                                <img src="./images/blogImage1.jpg" alt="">
-                            </div>
-                            <div class="Content__blogsContainer--blog-details">
-                                <div class="Content__blogsContainer--blog-caption">
-                                    <h4>Healthy</h4>
-                                </div>
-                                <div class="Content__blogsContainer--blog-name">
-                                    <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                </div>
-                                <div class="Content__blogsContainer--blog-info">
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>March 3, 2024</span>
-                                    </div>
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-regular fa-eye"></i>
-                                        <span>394</span>
-                                    </div>
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-solid fa-comments"></i>
-                                        <span>2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="Content__blogsContainer--blog">
-                            <div class="Content__blogsContainer--blog-image">
-                                <img src="./images/blogImage1.jpg" alt="">
-                            </div>
-                            <div class="Content__blogsContainer--blog-details">
-                                <div class="Content__blogsContainer--blog-caption">
-                                    <h4>Healthy</h4>
-                                </div>
-                                <div class="Content__blogsContainer--blog-name">
-                                    <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                </div>
-                                <div class="Content__blogsContainer--blog-info">
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>March 3, 2024</span>
-                                    </div>
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-regular fa-eye"></i>
-                                        <span>394</span>
-                                    </div>
-                                    <div class="Content__mainBlog--details-item">
-                                        <i class="fa-solid fa-comments"></i>
-                                        <span>2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endforeach
                     </div>
                     <div class="Content__mostViesPost">
                         <div class="Content__mostViesPost--title">
@@ -121,150 +58,28 @@
                             </h2>
                         </div>
                         <div class="Content__mostViesPost--grid">
-                            <a href="#" class="Content__mostViesPost--blog">
-                                <div class="Content__blogsContainer--blog-image">
-                                    <img src="./images/blogImage1.jpg" alt="">
-                                </div>
-                                <div class="Content__blogsContainer--blog-details">
-                                    <div class="Content__blogsContainer--blog-name">
-                                        <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
+                            @foreach ($mostpopularblogs as $mostpopularblog)
+                                <a href="{{ route('blogindex', ['id' => $mostpopularblog->id]) }}" class="Content__mostViesPost--blog">
+                                    <div class="Content__blogsContainer--blog-image">
+                                        <img src="storage/{{ $mostpopularblog->imagen }}" alt="">
                                     </div>
-                                    <div class="Content__blogsContainer--blog-info">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
+                                    <div class="Content__blogsContainer--blog-details">
+                                        <div class="Content__blogsContainer--blog-name">
+                                            <h3>{{ $mostpopularblog->nombre }}</h3>
                                         </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
+                                        <div class="Content__blogsContainer--blog-info">
+                                            <div class="Content__mainBlog--details-item">
+                                                <i class="fa-regular fa-clock"></i>
+                                                <span>{{ $mostpopularblog->fecha }}</span>
+                                            </div>
+                                            <div class="Content__mainBlog--details-item">
+                                                <i class="fa-regular fa-eye"></i>
+                                                <span>{{ $mostpopularblog->views }}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                            <a href="#" class="Content__mostViesPost--blog">
-                                <div class="Content__blogsContainer--blog-image">
-                                    <img src="./images/blogImage1.jpg" alt="">
-                                </div>
-                                <div class="Content__blogsContainer--blog-details">
-                                    <div class="Content__blogsContainer--blog-name">
-                                        <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                    </div>
-                                    <div class="Content__blogsContainer--blog-info">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="Content__mostViesPost--blog">
-                                <div class="Content__blogsContainer--blog-image">
-                                    <img src="./images/blogImage1.jpg" alt="">
-                                </div>
-                                <div class="Content__blogsContainer--blog-details">
-                                    <div class="Content__blogsContainer--blog-name">
-                                        <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                    </div>
-                                    <div class="Content__blogsContainer--blog-info">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="Content__mostViesPost--blog">
-                                <div class="Content__blogsContainer--blog-image">
-                                    <img src="./images/blogImage1.jpg" alt="">
-                                </div>
-                                <div class="Content__blogsContainer--blog-details">
-                                    <div class="Content__blogsContainer--blog-name">
-                                        <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                    </div>
-                                    <div class="Content__blogsContainer--blog-info">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="Content__mostViesPost--blog">
-                                <div class="Content__blogsContainer--blog-image">
-                                    <img src="./images/blogImage1.jpg" alt="">
-                                </div>
-                                <div class="Content__blogsContainer--blog-details">
-                                    <div class="Content__blogsContainer--blog-name">
-                                        <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                    </div>
-                                    <div class="Content__blogsContainer--blog-info">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="Content__mostViesPost--blog">
-                                <div class="Content__blogsContainer--blog-image">
-                                    <img src="./images/blogImage1.jpg" alt="">
-                                </div>
-                                <div class="Content__blogsContainer--blog-details">
-                                    <div class="Content__blogsContainer--blog-name">
-                                        <h3>Weighing the risks and benefits of modern hormonal contraception, Weighing the risks and benefits of modern hormonal contraception</h3>
-                                    </div>
-                                    <div class="Content__blogsContainer--blog-info">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -273,80 +88,61 @@
                         <div class="Content__sidebar--item">
                             <div class="Content__sidebar--heading">
                                 <h3>
-                                    <img src="./images/page-marker.png" alt="">
-                                    Popular Posts
+                                    <img src="{{ asset('images/page-marker.png') }}" alt="">
+                                    Posts Populares
                                 </h3>
                             </div>
                             <div class="Content__sidebar--posts">
-                                <a href="#" class="Content__sidebar--post">
-                                    <div class="Content__sidebar--post-image">
-                                        <img src="./images/blogImage1.jpg" alt="">
-                                    </div>
-                                    <div class="Content__sidebar--post-name">
-                                        <h6>The best recreation areas for general immunity</h6>
-                                    </div>
-                                    <div class="Content__sidebar--post-details">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
+                                @foreach ($popularblogs as $popularblog)
+                                    <a href="{{ route('blogindex', ['id' => $popularblog->id]) }}" class="Content__sidebar--post">
+                                        <div class="Content__sidebar--post-image">
+                                            <img src="{{ asset('storage/' . $popularblog->imagen) }}" alt="">
                                         </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
+                                        <div class="Content__sidebar--post-name">
+                                            <h6>{{ $popularblog->nombre }}</h6>
                                         </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <span>2</span>
+                                        <div class="Content__sidebar--post-details">
+                                            <div class="Content__mainBlog--details-item">
+                                                <i class="fa-regular fa-clock"></i>
+                                                <span>{{ $popularblog->fecha }}</span>
+                                            </div>
+                                            <div class="Content__mainBlog--details-item">
+                                                <i class="fa-regular fa-eye"></i>
+                                                <span>{{ $popularblog->views }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="Content__sidebar--post">
-                                    <div class="Content__sidebar--post-image">
-                                        <img src="./images/blogImage1.jpg" alt="">
-                                    </div>
-                                    <div class="Content__sidebar--post-name">
-                                        <h6>The best recreation areas for general immunity</h6>
-                                    </div>
-                                    <div class="Content__sidebar--post-details">
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-clock"></i>
-                                            <span>March 3, 2024</span>
-                                        </div>
-                                        <div class="Content__mainBlog--details-item">
-                                            <i class="fa-regular fa-eye"></i>
-                                            <span>394</span>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                @endforeach
+
                             </div>
                         </div>
                         <div class="Content__sidebar--item">
                             <div class="Content__sidebar--heading">
                                 <h3>
                                     <img src="./images/page-marker.png" alt="">
-                                    Comments
+                                    Comentarios
                                 </h3>
                                 <div class="Content__sidebar--comments">
                                     <div class="Content__sidebar--comment">
                                         <span>
                                             <i class="fa-solid fa-comments"></i>
-                                            Dr. Emma Stone
+                                            Dr. Julio Peña
                                         </span>
-                                        <p>The best recreation areas for general immunity</p>
+                                        <p>La mejor pagina de medicina</p>
                                     </div>
                                     <div class="Content__sidebar--comment">
                                         <span>
                                             <i class="fa-solid fa-comments"></i>
-                                            Dr. Emma Stone
+                                            Dr. Armando Casas
                                         </span>
-                                        <p>The best recreation areas for general immunity</p>
+                                        <p>Mucho contenido didactico y necesario</p>
                                     </div>
                                     <div class="Content__sidebar--comment">
                                         <span>
                                             <i class="fa-solid fa-comments"></i>
-                                            Dr. Emma Stone
+                                            Dr. Alan Brito
                                         </span>
-                                        <p>The best recreation areas for general immunity</p>
+                                        <p>La brujula guia para una buena salud</p>
                                     </div>
                                 </div>
                             </div>
@@ -355,12 +151,12 @@
                             <div class="Content__sidebar--heading">
                                 <h3>
                                     <img src="./images/page-marker.png" alt="">
-                                    Calendar
+                                    Calendario
                                 </h3>
                                 <div class="Content__sidebar--calendar">
                                     <div class="Content__sidebar--calendarContainer">
                                         <table id="wp-calendar" class="wp-calendar-table">
-                                            <caption>April 2024</caption>
+                                            <caption>Abril 2024</caption>
                                             <thead>
                                                 <tr>
                                                     <th scope="col" title="Monday">M</th>

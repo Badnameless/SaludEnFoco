@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enfermedades', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 60);
             $table->text('descripcion');
@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('causas');
             $table->text('prevencion');
             $table->bigInteger('views')->default(0);
+            $table->date('fecha');
             $table->timestamps();
         });
     }
