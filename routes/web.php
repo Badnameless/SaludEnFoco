@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<?php
-
 use App\Http\Controllers\PreguntaFrecuenteController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,3 +51,4 @@ Route::middleware([
     Route::put('/provinces/{ProvinciaID}/update-translation', [ProvinciaController::class, 'specificUpdate'])->name('provinces.update_translation');
     Route::resource('/provinces', ProvinciaController::class);
 });
+?>
