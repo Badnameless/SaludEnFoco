@@ -9,29 +9,8 @@
 
           <div class="bg-white rounded-md mb-8 w-full">
 
-              <div class="px-6 py-4 border-b border-gray-200">
-                  <h4 class="text-lg font-normal text-gray-900">Filtros</h4>
-              </div>
-      
-              <div class="w-full py-8 px-6 grid grid-cols-2 gap-10">
-                  
-                  <div class="mb-6 flex items-center">
-                      <label for="name" class="px-4 text-sm flex items-center py-1 h-35px min-w-fit border border-r-0 bg-labelFilterBG border-labelFilterBorder rounded-l-md">Nombre</label>
-                      <input type="text" name="name" id="name" class="h-35px text-sm border border-labelFilterBorder rounded-r-md w-full px-4" @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif>
-                  </div>
-      
-              </div>
-      
-              <div class="px-6 py-4 flex items-center justify-end">
-      
-                  <div class="mr-6">
-                      <button class="px-4 py-2 bg-reloadButtonBG hover:bg-reloadButtonHoverBG duration-300 text-white text-sm rounded"><i class="fas fa-redo mr-1"></i> Reiniciar Búsqueda</button>
-                  </div>
-      
-                  <div>
-                      <button type="submit" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 duration-300 text-white text-sm rounded"><i class="fas fa-search mr-1"></i></i> Buscar</button>
-                  </div>
-      
+              <div class="px-6 py-4 text-center">
+                  <h4 class="text-xl font-bold text-gray-900 ">Bienvenido a blogs</h4>
               </div>
       
           </div>

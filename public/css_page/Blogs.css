@@ -1,3 +1,9 @@
+.singleBlogContainer .Content__mainBlog--name h3 {
+    -webkit-line-clamp: initial !important;
+}
+.singleBlogContainer .Content__mainBlog--description p {
+    -webkit-line-clamp: initial !important;
+}
 .titlebox h1{
     margin: 0;
     color: #fff;

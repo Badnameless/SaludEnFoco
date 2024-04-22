@@ -21,6 +21,7 @@ Route::get('/searchblog', [HomeController::class, 'SearchBlog'])->name('searchbl
 // Usuarios
 
 Route::get('/usuarios', [UserController::class, 'UserIndex'])->name('usuarios')->middleware('auth');
+Route::get('/SearchUsers', [UserController::class, 'SearchUsers'])->name('SearchUsers')->middleware('auth');
 
 Route::delete('/delete_user/{id}', [UserController::class, 'delete'])->name('del_user')->middleware('auth');
 

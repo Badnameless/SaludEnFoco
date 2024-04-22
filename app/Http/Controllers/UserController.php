@@ -12,6 +12,16 @@ class UserController extends Controller
         return view('usuarios.index', compact('users'));
     }
 
+    public function SearchUsers(Request $request){
+        $term = $request->name;
+        $users = User::where(function ($query) use ($term) {
+            $query->where('name', 'like', "%$term%")
+                  ->orWhere('id', $term); // Filtra por ID
+        })->get();
+
+        return view('usuarios.index', compact('users'));
+    }
+
     public function delete($id){
         $user = User::findOrFail($id);
         $user->delete();

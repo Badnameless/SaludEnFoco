@@ -5,7 +5,7 @@
 
     <div class="max-w-screen-2xl w-full mx-auto px-4 sm:px-6 lg:px-8 px-4 sm:px-6 lg:px-8 mt-12">
 
-        <form method="get" class="flex items-center gap-5 w-full mt-12">
+        <form action="{{ route('SearchUsers') }}" method="get" class="flex items-center gap-5 w-full mt-12">
 
           <div class="bg-white rounded-md mb-8 w-full">
 
@@ -52,35 +52,42 @@
                             </tr>
                           </thead>
                           <tbody id="tableBody" class="bg-white">
-                            @foreach ($users as $user)
-                              <tr>
-                                <td class="w-50px whitespace-nowrap py-2 pl-4 pr-3 text-lg font-medium text-gray-900 sm:pl-6 cursor-pointer"><i class="fas fa-arrows-alt-v"></i></td>
-                                <td class="w-1/4 whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-mundoVerdeGreen sm:pl-6 hover:underline">
-                                  <span>{{ $user->name }}</span>
-                                </td>
-                                <td class="w-1/4 max-w-xs sm:max-w-md whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-mundoVerdeGreen sm:pl-6 hover:underline overflow-hidden truncate">
-                                  <span>{{ $user->email }}</span>
-                                </td>
-                                <td class="w-1/4 whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-mundoVerdeGreen sm:pl-6 hover:underline">
-                                  <span>{{ $user->telefono }}</span>
-                                </td>
-                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 sm:pr-6">
-                                  <div class="flex items-center">
-                                      <div>
-                                        <form action="{{ route('del_user', ['id' => $user->id]) }}" method="POST">
-                                          @csrf
-                                          @method('DELETE') 
-                                        <div>
-                                            <button class="w-35px h-35px cursor-pointer text-gray-500 flex items-center text-sm justify-center rounded-full hover:bg-red-600 hover:text-white duration-300" type="submit" onclick="return confirm('¿Seguro que desea eliminar al usuario?')"><i class="far fa-trash-alt"></i></button>
-                                        </div>
-                                        </form> 
-                                        
-                                      </div>
-                                  </div>
-                                </td>
-                              </tr>
-                              @endforeach
-                          </tbody>
+                            @if ($users && count($users) > 0)
+                                @foreach ($users as $user)
+                                    @if ($user->name !== 'Admin') {{-- Condición para omitir usuarios con nombre "Admin" --}}
+                                        <tr>
+                                            <td class="w-50px whitespace-nowrap py-2 pl-4 pr-3 text-lg font-medium text-gray-900 sm:pl-6 cursor-pointer"><i class="fas fa-arrows-alt-v"></i></td>
+                                            <td class="w-1/4 whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-mundoVerdeGreen sm:pl-6 hover:underline">
+                                                <span>{{ $user->name }}</span>
+                                            </td>
+                                            <td class="w-1/4 max-w-xs sm:max-w-md whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-mundoVerdeGreen sm:pl-6 hover:underline overflow-hidden truncate">
+                                                <span>{{ $user->email }}</span>
+                                            </td>
+                                            <td class="w-1/4 whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-mundoVerdeGreen sm:pl-6 hover:underline">
+                                                <span>{{ $user->telefono }}</span>
+                                            </td>
+                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 sm:pr-6">
+                                                <div class="flex items-center">
+                                                    <div>
+                                                        <form action="{{ route('del_user', ['id' => $user->id]) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE') 
+                                                            <div>
+                                                                <button class="w-35px h-35px cursor-pointer text-gray-500 flex items-center text-sm justify-center rounded-full hover:bg-red-600 hover:text-white duration-300" type="submit" onclick="return confirm('¿Seguro que desea eliminar al usuario?')"><i class="far fa-trash-alt"></i></button>
+                                                            </div>
+                                                        </form> 
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5" class="text-center py-4 text-gray-500">No se encontraron usuarios.</td>
+                                </tr>
+                            @endif
+                        </tbody>
                         </table>
 
                         <div class="mt-10">

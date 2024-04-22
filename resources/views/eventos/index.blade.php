@@ -5,7 +5,7 @@
 
     <div class="max-w-screen-2xl w-full mx-auto px-4 sm:px-6 lg:px-8 px-4 sm:px-6 lg:px-8 mt-12">
 
-        <form action="{{route('events.show', 1)}}" method="get" class="flex items-center gap-5 w-full mt-12">
+        <form action="{{route('usuarios.index')}}" method="get" class="flex items-center gap-5 w-full mt-12">
 
           <div class="bg-white rounded-md mb-8 w-full">
               <div class="px-6 py-4 border-b border-gray-200">
@@ -19,9 +19,6 @@
                   </div>
               </div>
               <div class="px-6 py-4 flex items-center justify-end">
-                  <div class="mr-6">
-                      <button class="px-4 py-2 bg-reloadButtonBG hover:bg-reloadButtonHoverBG duration-300 text-white text-sm rounded"><i class="fas fa-redo mr-1"></i> Reiniciar Búsqueda</button>
-                  </div>
                   <div>
                       <button type="submit" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 duration-300 text-white text-sm rounded"><i class="fas fa-search mr-1"></i></i> Buscar</button>
                   </div>

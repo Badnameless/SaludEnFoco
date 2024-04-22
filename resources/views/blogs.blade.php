@@ -6,7 +6,7 @@
     </div>
     <div class="Content">
         <div class="container">
-            <div class="Content__container">
+            <div class="Content__container singleBlogContainer">
                 <div class="Content__body">
                     <div class="Content__mainBlog">
                         <a href="#" class="Content__mainBlog--image">
@@ -16,25 +16,25 @@
                             <h3>Descripción</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>{{ $blog->descripcion }}</p>
+                            <p>{!! nl2br(e($blog->descripcion)) !!}</p>
                         </div>
                         <div class="Content__mainBlog--name">
                             <h3>Sintomas</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>{{ $blog->sintomas }}</p>
+                            <p>{!! nl2br(e($blog->sintomas)) !!}</p>
                         </div>
                         <div class="Content__mainBlog--name">
                             <h3>Causas</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>{{ $blog->causas }}</p>
+                            <p>{!! nl2br(e($blog->causas)) !!}</p>
                         </div>
                         <div class="Content__mainBlog--name">
                             <h3>Prevención</h3>
                         </div>
                         <div class="Content__mainBlog--description">
-                            <p>{{ $blog->prevencion }}</p>
+                            <p>{!! nl2br(e($blog->prevencion)) !!}</p>
                         </div>
                         <div class="Content__mainBlog--details">
                             <div class="Content__mainBlog--details-item">
