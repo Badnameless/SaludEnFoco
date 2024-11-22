@@ -1,6 +1,7 @@
 @extends('layout-page')
 @section('title', 'Tu salud es importante')
 @section('content')
+{{-- New content --}}
     <div class="Content">
         <div class="container">
             <div class="Content__container">
